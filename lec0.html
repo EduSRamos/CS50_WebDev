@@ -23,6 +23,24 @@
     <!-- Used for metadata, e.g., info and how to display the data -->
     <head>
         <title>My Webpage!</title>
+
+        <!-- 9. Style no cabecalho -->
+        <!--
+            <style>
+                h1 {
+                    color: red;
+                    text-align: center;
+                }
+            </style>
+        -->
+
+        <!-- 10. Style em um arquivo .css separado -->
+        <!-- Information about the style of the page -->
+        <link rel="stylesheet" href="style.css">
+
+        <!-- OBS.:Se tanto uma especificacao do tipo (9) quanto uma do tipo (10)
+             sao mantidas em um mesmo arquivo, a que vier DEPOIS prevalece
+        -->
     </head>
     <!--  -->
     <body>
@@ -65,6 +83,7 @@
             <li>New row: tag "tr" ("table rows")</li>
             <li>Column item of the header row: tag "th" ("table headers")</li>
             <li>Column item of a regular row: tag "td" ("table data")</li>
+            <li>The styling of this table was made in style.css file</li>
         </ul>
         <table>
             <tr>
@@ -82,6 +101,7 @@
                 <td>Adams</td>
                 <td>1797-1801</td>
             </tr>
+        </table>
 
         <!-- 6. Form -->
         <!-- Collect information from the user -->
@@ -106,13 +126,77 @@
             <button>Submit</button>
         </form>
 
+        <!-- 7. Style0: hardcoded style -->
+        <h1 style="color:red;text-align:center;">
+            Heading com estilo hardcoded
+        </h1>
+        <h1 style="color:#4286cd;text-align:center;">
+            Heading com cor utilizando valor HEX-value do RGB
+        </h1>
 
+        <!-- 8. Paragraph -->
+        <p>Este eh um paragrafo utilizando a tag "p"</p>
+        <p style="color:darkmagenta">Outro paragrafo</p>
 
+        <!-- 9. Style no cabecalho (ver <head>)-->
+        <h1 style="color:darkgreen;text-align:center;">
+            A definicao da cor deste heading suplanta a global
+        </h1>
+
+        <!-- 10. Style em um arquivo .css separado -->
+
+        <!-- 11. Division of code -->
+        <!-- Section of my code that I, for example, want to style in a
+            particular way -->
+        <div>
+            <!-- Obs.: see the style definition in style.css -->
+            Hey, this is a division of my code using tag "div"!
+            <p> I used the following style properties: </p>
+            <ul>
+                <li>background-color</li>
+                <li>width</li>
+                <li>height</li>
+                <li>margin: space outside the box</li>
+                <li>padding: space inside the box</li>
+                <li>
+                    font-family: Arial, sans-serif; - it'll try them in order
+                    until one is compatible
+                </li>
+                <li>font-size</li>
+                <li>font-weight: bold;</li>
+                <li>border: 3px solid blue;</li>
+            </ul>
+        </div>
+
+        <!-- 12. id and span -->
+        <!-- div and span don't do anything concrete, just lets us label
+                sections of our code
+             I can only give a specific id to a single element, but I can give
+                the same class to multiple elements
+             If the two types "collide", css will default to picking the most
+                specific (deeper within the DOM tree)
+                ATTENTION: it is not which LABEL (id, class, etc) is more
+                    specific, it is about WHERE in the tree the labeled piece is
+        -->
+        <div id="top">
+            This is the <span class="name">top</span> of my web page. It uses
+            < div id="top" > and < span class="name" >. We can style id's and
+            spans in the .css file using "#" and ".", respectively.
+        </div>
+        <div id="middle">
+            This is the <span class="name">middle</span> of my web page.It uses
+            < div id="top" > and < span class="name" >. We can style id's and
+            spans in the .css file using "#" and ".", respectively.
+        </div>
+        <div id="bottom">
+            This is the <span class="name">bottom</span> of my web page.It uses
+            < div id="top" > and < span class="name" >. We can style id's and
+            spans in the .css file using "#" and ".", respectively.
+        </div>
     </body>
 </html>
 
 <!-- To view the html code of a page, right-click + 'View Page Source' -->
-
 
 <!-- Its helpful to think about html like a tree structure - DOM
      Document Object Model

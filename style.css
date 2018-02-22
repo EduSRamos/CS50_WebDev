@@ -1,0 +1,57 @@
+/* Comment in html */
+
+/* Elements */
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+p {
+    color: orange;
+}
+
+div {
+    background-color: teal;
+    width: 500px;
+    height: 300px;
+    margin: 30px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: 3px solid blue;
+}
+
+table {
+    border: 2px dashed red;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+th, td {
+    border: 1px dotted darkmagenta;
+    padding: 5px;
+}
+
+th {
+    text-align: center;
+    background-color: lightgray;
+}
+
+/* id's */
+#top {
+    font-size: 20px;
+}
+
+#middle {
+    font-size: 20px;
+}
+
+#bottom {
+    font-size: 20px;
+}
+
+/* span */
+.name {
+    color: violet;
+}
