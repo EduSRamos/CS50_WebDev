@@ -1,0 +1,73 @@
+// **********************            SASS            ********************** //
+// Web browsers don't, out of the box, understand .scss; thus, we need to
+// convert it into a .css file:
+//      >> sass lec1.scss lec1_sass.css
+//
+// .css.map: file to help the browser understand the relationship between the
+// .scss and .css files.
+
+// ********************** WATCHING FILES FOR CHANGES ********************** //
+// To avoid having to recompile every time you change sth, SASS has the feature
+// of "watching a file", and anytime any of them changes automatically recompile
+// the .css files
+//      >> sass --watch lec1.scss:lec1_sass.css
+
+// **********************      SUPPORT FOR SASS      ********************** //
+// Many websites for deployment (Github included) have support for SASS, so that
+// if you upload your .scss file it'll take care of generating the .css for you
+
+// **********************   IMPORTANTING CSS FILES   ********************** //
+// SASS has a built-in command that lets you import existing .css files into a
+// SASS file. There's support for multi-file stylesheets.
+
+// **********************          VARIABLES         ********************** //
+// New variable
+$color: blue;
+
+ul {
+    font-size: 14px;
+    color: $color;
+}
+
+ol {
+    font-size:18px;
+    color: $color;
+}
+
+// **********************      NESTING SELECTORS     ********************** //
+// Improves organization
+div {
+    font-size: 18px;
+
+    p { // I want this to apply to any paragraph that is inside a <div>
+        color: blue;
+    }
+    ul {
+        color: green;
+    }
+}
+
+// **********************         INHERITANCE        ********************** //
+// You have a general styling, that you want to apply to different things, but
+// each one with a small difference.
+// e.g., manually writing the alert messages from Bootstrap
+%message {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+.success {
+    @extend %message;
+    background-color: green;
+}
+.warning {
+    @extend %message;
+    background-color: yellow;
+}
+.error {
+    @extend %message;
+    background-color: red;
+}

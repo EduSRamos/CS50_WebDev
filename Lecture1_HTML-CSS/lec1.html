@@ -1,10 +1,397 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Test</title>
+        <title>My Web Page!</title>
+        <!-- The command below says that the viewport of my web page is just
+             the visible area on the computer/phone/etc screen. Avoids that
+             excessive shrinking in cell phones.
+        -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet"
+              href=
+        "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity=
+       "sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <!-- LECTURE'S CSS -->
+        <link rel="stylesheet" href="lec1.css">
+
+        <!-- LECTURE'S SASS EXAMPLE -->
+        <link rel="stylesheet" href="lec1_sass.css">
     </head>
     <body>
-        test
-        <p> Here is a new feature </p>
+        <!-- 1. Creating a link to a different page
+            href defines what hyperlink we want to link to when someone clicks;
+                it doesn't have to be a local file (e.g., external url)
+        -->
+        <a href="hello.html">Link para um arquivo local!</a>
+        <a href="https://www.google.com.br">Link para uma url externa!</a>
+
+
+        <!-- 2. Creating a link to a section of the same page
+            Remember to use a # symbol
+        -->
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <li><a href="#section3">Section 3</a></li>
+        </ul>
+        <h3 id="section1">Section 1</h3>
+        <p>
+            The heading above has "id=section1", and we can reference it using
+            "< a href="#section1">(texto)< /a>". The # symbol means "rather than
+            referencing a specific page, reference something with a specific id"
+        </p>
+        <h3 id="section2">Section 2</h3>
+        <p>
+            The heading above has "id=section2", and we can reference it using
+            "< a href="#section2">(texto)< /a>"
+            <h5 style="color:#4286cd;font-weight:bold">
+                An individual id can never appear more than once in a given page
+            </h5>
+        </p>
+        <h3 id="section3">Section 3</h3>
+        <p>
+            The heading above has "id=section3", and we can reference it using
+            "< a href="#section3">(texto)< /a>"
+        </p>
+
+        <!-- 3. Website Organization
+                HTML4 Organization
+            div: generic vertical section of the web page with a name
+            - <div class="header"> / associate classes to format later
+            - <div class="nav">
+            - <div class="section">
+            - <div class="footer">
+
+                HTML5 Organization
+            some specific parts of the web page now have their own tags
+            - <header>
+            - <nav> / navigation bar?
+            - <section>
+            - <footer>
+            - ...
+
+            additional tags:
+            <audio>, <video>, <datalist> (autocomplete), ...
+        -->
+
+        <!-- 4. Creating a form with datalists -->
+        <form>
+            <p>
+                Novo form criado usando </ form>
+            </p>
+            <div>
+                <p>
+                    Estes quadros foram feitos dentro de uma </ div> utilizando
+                    < input name="(.)" type="text" placeholder="(.)"> e
+                    < input name="(.)" type="password" placeholder="(.)">
+                </p>
+                <input name="name" type="text" placeholder="Name">
+                <input name="name" type="password" placeholder="Password">
+            </div>
+
+            <div>
+                <p>
+                    Esta pergunta foi feita dentro de uma </ div> utilizando
+                    < input name="(.)" type="radio" value="(.)">(texto).
+
+                    Para que o radio saiba que as opcoes pertencem a mesma
+                    pergunta, ele usa o mesmo nome no campo "name" de < input>
+                </p>
+                Favorite color?
+                <input name="color" type="radio" value="red"> Red
+                <input name="color" type="radio" value="green"> Green
+                <input name="color" type="radio" value="blue"> Blue
+                <input name="color" type="radio" value="other"> Other
+            </div>
+
+            <div>
+                <p>
+                    Estas opcoes sao feitas utilizando
+                    <span style="color:darkmagenta">
+                        < input name="(.)" list="countries" placeholder="(.)">
+                    </span>
+                    juntamente com
+                    <span style="color:darkmagenta">
+                        </ datalist id="countries"> \n\t < option value="XXX">
+                    </span>
+                </p>
+                Your country:
+                <input name="country" list="countries" placeholder="Country">
+                <datalist id="countries">
+                    <option value="Afghanistan">
+                    <option value="Albania">
+                    <option value="Algeria">
+                    <option value="Other">
+                </datalist>
+            </div>
+        </form>
+
+        <!-- 5. Examples to use with lec1.css regarding SELECTORS -->
+        <!-- 5.1. Nested lists -->
+        <h1>CSS SELECTORS</h1>
+        <ol>
+            <li>External list item 1 - child and descendant selectors</li>
+            <li> External list item 2</li>
+            <ul>
+                <li>Internal list item 1 - only descendant selectors</li>
+                <li>Internal list item 2</li>
+            </ul>
+            <li> External list item 3</li>
+        </ol>
+
+        <!-- 5.2. Attribute -->
+        <form>
+            Testing attribute selectors:
+            <input name="name" type="text" placeholder="First Name">
+            <input name="name" type="text" placeholder="Last Name">
+            <input name="name" type="number" placeholder="Age">
+        </form>
+
+        <!-- 5.3. Pseudoclass -->
+        <!-- Special state of an html element; users are often interacting with
+             the web page (hovering over, cursor moving, etc), so we may want
+             our web page to respond to user interactivity.
+         -->
+        <button>
+            Hover over me to test pseudoclass selectors! "button:hover" in .css
+        </button>
+
+        <!-- 5.4 Pseudo-elements -->
+        <ul>
+            <!-- href=#: don't do anything -->
+            <li><a href="#">one link using pseudoelement selector</a></li>
+            <li><a href="#">the arrow and "Click me" were added autom.</a></li>
+            <li><a href="#">define "a::before {(...)}" in the css file</a></li>
+        </ul>
+        <p>
+            Testing pseudoelement selector; doesn't work on firefox, use chrome.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis elementum sem diam, sagittis aliquam risus commodo nec.
+            Morbi et massa ex. Cras tempus felis et egestas lacinia. Aenean
+            fermentum vestibulum sem, at consectetur neque. Donec tempus enim
+            vulputate orci auctor gravida.
+        </p>
+
+
+        <!-- 6. Examples to use with lec1.css regarding RESPONSIVE DESIGN -->
+        <!-- 6.1. Media queries -->
+        <h1 style="color: darkgreen;">CSS RESPONSIVE DESIGN</h1>
+        <p>Testing media queries</p>
+        <p>This is another paragraph</p>
+        <p class="screen-only">
+            This paragraph won't appear when you print this page.
+        </p>
+        <p>Shrink the width of this page to turn the background blue</p>
+
+        <h3>Shrink the width to change message!</h3>
+
+        <!-- 6.2. Flexbox -->
+        <div class="lec1_container">
+            <div>A.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis elementum sem diam, sagittis aliquam risus commodo nec.
+            Morbi et massa ex. Cras tempus felis et egestas lacinia. Aenean
+            fermentum vestibulum sem, at consectetur neque. Donec tempus enim
+            vulputate orci auctor gravida.</div>
+            <div>B.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis elementum sem diam, sagittis aliquam risus commodo nec.
+            Morbi et massa ex. Cras tempus felis et egestas lacinia. Aenean
+            fermentum vestibulum sem, at consectetur neque. Donec tempus enim
+            vulputate orci auctor gravida.</div>
+            <div>C.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis elementum sem diam, sagittis aliquam risus commodo nec.
+            Morbi et massa ex. Cras tempus felis et egestas lacinia. Aenean
+            fermentum vestibulum sem, at consectetur neque. Donec tempus enim
+            vulputate orci auctor gravida.</div>
+            <div>D.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis elementum sem diam, sagittis aliquam risus commodo nec.
+            Morbi et massa ex. Cras tempus felis et egestas lacinia. Aenean
+            fermentum vestibulum sem, at consectetur neque. Donec tempus enim
+            vulputate orci auctor gravida.</div>
+            <div>E.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis elementum sem diam, sagittis aliquam risus commodo nec.
+            Morbi et massa ex. Cras tempus felis et egestas lacinia. Aenean
+            fermentum vestibulum sem, at consectetur neque. Donec tempus enim
+            vulputate orci auctor gravida.</div>
+            <div>F.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis elementum sem diam, sagittis aliquam risus commodo nec.
+            Morbi et massa ex. Cras tempus felis et egestas lacinia. Aenean
+            fermentum vestibulum sem, at consectetur neque. Donec tempus enim
+            vulputate orci auctor gravida.</div>
+            <div>G.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis elementum sem diam, sagittis aliquam risus commodo nec.
+            Morbi et massa ex. Cras tempus felis et egestas lacinia. Aenean
+            fermentum vestibulum sem, at consectetur neque. Donec tempus enim
+            vulputate orci auctor gravida.</div>
+            <div>H.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis elementum sem diam, sagittis aliquam risus commodo nec.
+            Morbi et massa ex. Cras tempus felis et egestas lacinia. Aenean
+            fermentum vestibulum sem, at consectetur neque. Donec tempus enim
+            vulputate orci auctor gravida.</div>
+        </div>
+
+        <!-- 7. Grid -->
+        <div class="grid">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+            <div class="grid-item">9</div>
+        </div>
+
+        <!-- 8. BOOTSTRAP - has special classes
+                * row
+                * col-x (x-columns worth of space)
+
+             Go to their website and check the "Components" section.
+
+             IMPORTANT: if Bootstrap's styling conflicts with yours, e.g., both
+             define the same class, CSS will try to reconcile, but, whenever
+             impossible, the more specific one usually takes precedence.
+                        You may also wittingly "overwrite" Bootstrap's styling
+             to customize it.
+        -->
+        <!-- This is Bootstrap's "container" class != "lec1_container" -->
+        <h1 style="color: darkgreen;">BOOTSTRAP</h1>
+        <h4 style="font-weight:bold">Example #1 - column definition</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                    This section takes up 3 columns - < div class="col-3">.
+                </div>
+                <div class="col-3">
+                    I used Bootstrap for this.
+                </div>
+                <div class="col-3">
+                    All these are in the same < div class="row">.
+                </div>
+                <div class="col-3">
+                    Bootstraps divides the rows into 12 columns.
+                </div>
+            </div>
+        </div>
+        <!-- Example #2 -->
+        <h4 style="font-weight:bold">Example #2 - "smarter" columns</h4>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    This example uses < div class="col-lg-3 col-sm-6">.
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    "col-lg-3" = column-large-3. On a large screen, use 3 cols.
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    "col-sm-6" = column-small-3. On a small screen, use 6 cols.
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    I used bootstrap for this.
+                </div>
+            </div>
+        </div>
+        <!-- Example #3 -->
+        <h4 style="font-weight:bold">Example #3 - alert messages</h4>
+        <div class="container">
+            <div class="alert alert-primary" role="alert">
+                < div class="alert alert-primary" role="alert">
+            </div>
+            <div class="alert alert-success" role="alert">
+                < div class="alert alert-success" role="alert">
+            </div>
+            <div class="alert alert-danger" role="alert">
+                < div class="alert alert-danger" role="alert">
+            </div>
+        </div>
+
+
+        <!-- 8. SASS: see lec1.scss / lec1_sass.css and </head>  -->
+        <h1 style="color: darkgreen;">SASS</h1>
+
+        <!-- 8.1. Variables -->
+        <h4 style="font-weight:bold">Example #1 - variables</h4>
+        Unordered Lists
+        <ul>
+            <li>item using SASS</li>
+            <li>SASS = .css converted from .scss</li>
+            <li> >> sass lec1.scss lec1_sass.css </li>
+        </ul>
+
+        Ordered list
+        <ol>
+            <li>item using SASS</li>
+            <li>SASS = .css converted from .scss</li>
+            <li> >> sass lec1.scss lec1_sass.css </li>
+        </ol>
+
+        <!-- 8.2. Nesting selectors -->
+        <h4 style="font-weight:bold">Example #2 - nesting selectors</h4>
+        <div>
+            <p>This is a paragraph inside the div. Colored blue?</p>
+
+            List inside the div:
+            <ul>
+                <li>item one. Colored green?</li>
+                <li>item two</li>
+                <li>item three</li>
+            </ul>
+        </div>
+
+        <p>This is a paragraph outside the div.</p>
+
+        List outside the div:
+        <ul>
+            <li>item one</li>
+            <li>item two</li>
+            <li>item three</li>
+        </ul>
+
+        <!-- 8.3. Inheritance -->
+        <h4 style="font-weight:bold">Example #3 - inheritance </h4>
+        All these alerts inherit from "message".
+        <p>
+            %message {
+                font-family: sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                border: 1px solid black;
+                padding: 20px;
+                margin: 20px;
+            }
+        </p>
+        <div class="success">
+            Success! < div class="success">
+            <p>
+                .success {
+                    @extend %message;
+                    background-color: green;
+                }
+            </p>
+        </div>
+        <div class="warning">
+            Warning! < div class="warning">
+            <p>
+                .warning {
+                    @extend %message;
+                    background-color: yellow;
+                }
+            </p>
+        </div>
+        <div class="error">
+            Error! < div class="error">
+            <p>
+                .error {
+                    @extend %message;
+                    background-color: red;
+                }
+            </p>
+        </div>
     </body>
 </html>
