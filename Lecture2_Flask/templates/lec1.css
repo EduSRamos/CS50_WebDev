@@ -1,0 +1,153 @@
+/******************************************************************************/
+
+/* CSS SELECTORS:
+    a, b : Multiple element selector
+    a b  : Descendant Selector
+    a > b: Child selector
+    a + b: Adjacent Sibling selector
+                sth that comes immediately after sth else
+                sisters in the tree, rather than a parent, for example
+    [a=b]: Attribute selector
+    a:b  : Pseudoclass selector
+    a::b : Pseudoelement selector
+*/
+
+/* 1. Style ALL list items contained in an ordered list with color red */
+/* ol li {
+    color:red;
+} */
+
+/* 2. Select only items which are immediate children */
+/* ol > li {
+    color:red;
+} */
+
+/* 3. Style based on attributes */
+input[type=text] {
+    background-color: red;
+}
+input[type=number] {
+    background-color: yellow;
+}
+
+/* 4. Pseudoclass: Change the style based on a particular state that the
+      element might be */
+button:hover {
+    background-color: orange;
+}
+
+/* 5. Pseudo-elements: Affect particular parts of an html element */
+/* Pseudo-element "before" - apply styling that happens before the content of
+    the actual link */
+a::before {
+    content: "\21d2  Click here: "; /* \21d2: HEX-value for a unicode symbol */
+    font-weight: bold;
+}
+/* Pseudo-element "selection" - when something is selected I want it to behave
+    in a particular style*/
+/* OBS.: DOES NOT WORK IN FIREFOX; USE CHROME INSTEAD */
+p::selection {
+    color: red;
+    background-color: yellow;
+}
+
+/******************************************************************************/
+
+/* RESPONSIVE DESIGN - makes sure our page looks good regardless of where we
+                        interact with it (laptop, phone, etc)
+                       e.g., stack columns, adjust fonts, etc
+
+    * viewport
+    * Media Queries
+    * Flexbox
+    * Grids
+*/
+
+/* MEDIA QUERIES: assign css not to a particular html element, but to a
+    particular html element on a particular type of media (e.g., when someone
+    prints your website)
+*/
+@media print {
+    .screen-only {
+        display: none;
+    }
+}
+@media (max-width: 499px) {
+    body {
+        background-color: blue;
+    }
+    h3::before {
+        content: "Width < 499px. "
+    }
+}
+@media (min-width: 500px){
+    h3::before {
+        content: "Width > 500px. "
+    }
+}
+
+/* FLEXBOX: allows us to create a web page that has multiple boxes on a grid
+    (e.g., see flexbox.html at the class's source code) in a way that adapts
+    to the width of the screen
+*/
+.lec1_container {
+    display: flex; /* I want this to be a flexbox (wrap around) */
+    flex-wrap: wrap;
+}
+.lec1_container > div {
+    background-color: springgreen;
+    font-size: 10px;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+}
+
+/* GRID:
+*/
+.grid {
+    background-color: green;
+    display: grid;
+    padding: 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    grid-template-columns: auto 200px auto; /* IMPORTANT */
+}
+.grid-item {
+    background-color: white;
+    font-size: 20px;
+    padding: 20px;
+    text-align:center;
+}
+
+/******************************************************************************/
+
+/* CSS LIBRARIES: it's a bit complicated to remember to always make flexboxes,
+                  grids, etc, but luckily there are libraries written by third
+                  parties to help us make our website more mobile-responsive,
+                  for example.
+
+    * BOOTSTRAP
+*/
+
+/* BOOTSTRAP: just link the address in the <head> of the html file
+    The real power of bootstrap comes with the way it organizes information and
+    lays things out.
+    It uses a COLUMN-BASE model: each "row" of the website is divided into 12
+                                 individual columns, and you can control how
+                                 many columns different things take up.
+*/
+.row > div {
+    padding: 20px;
+    background-color: teal;
+    border: 2px solid black;
+}
+.alert {
+    margin: 20px;
+}
+
+/******************************************************************************/
+
+/* SASS: gives us more power and flexibility when designing CSS stylesheets
+    e.g.: how to avoid having to change colors you want to match at two
+    different places? VARIABLES
+*/
