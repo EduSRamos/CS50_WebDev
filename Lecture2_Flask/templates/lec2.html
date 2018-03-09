@@ -15,7 +15,49 @@
         -->
         <p>Variable headline from python file: {{ headline }}</p>
 
+        <!-- 6. Commands -->
         <h3>Is it new year? {{ new_year }}</h3>
+        {% if new_year %}
+            <p>Yes! Happy New Year!</p>
+        {% else %}
+            <p>NO</p>
+        {% endif %}
 
+        <h3>My names:</h3>
+        <ul>
+            {% for keys in names %}
+                <li>{{ names[keys] }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- 7. Routing -->
+        <h3>Routing:</h3>
+            {% if route=="A" %}
+                <!-- Looks for FUNCTION linkBA() -->
+                <a href="{{ url_for('linkBA') }}">See link B</a>
+            {% endif %}
+            {% if route=="B" %}
+                <a href="{{ url_for('linkAB') }}">See link A</a>
+            {% endif %}
+
+        <!-- 9. Forms -->
+        <h2>Forms</h2>
+            <!-- action: when I submit this form, who should be notified? -->
+            <!-- HTTP request is the process by which your browser makes a
+                 request to a web server to get information; these requests can
+                 come in a number of different methods. By default, I'm making
+                 a GET-request - fetching info from the server. But now we're
+                 submitting data to the server, so we use the POST-request -->
+            <form action="{{ url_for('whatsup') }}" method="post">
+                <input type="text" name="usrname" placeholder="Enter Your Name">
+                <button>Submit</button>
+            </form>
+
+        <!-- 10. Session -->
+        <h2>Session</h2>
+            <form action="{{ url_for('sessionfun') }}" method="post">
+                <input type="text" name="new_note" placeholder="New note?">
+                <button>Submit note</button>
+            </form>
     </body>
 </html>

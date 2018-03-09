@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Hey {{ name }}, what's up?
+{% endblock %}
+
+{% block body %}
+    Here are your notes:
+    <ul>
+        {% for note in notes %}
+            <li stype="color:darkmagenta">{{ note }}</li>
+        {% endfor %}
+    </ul>
+
+    <form action="{{ url_for('forms') }}" method="get">
+        Go back to main page?
+        <button>Yes!</button>
+    </form>
+
+    <a href="{{ url_for('forms') }}">Alternative way to return</a>
+{% endblock %}
